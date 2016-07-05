@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<style>
+			#float
+			{
+				width:400px;
+				height:300px;
+				display:block;
+				position:absolute;
+				left:auto;
+				right:auto;
+				top:40px;
+				border:2px solid black;
+				background-color:#F0F0F0;
+			}
+			#title
+			{
+				font-size:16px;
+				font-weight:bold;
+				text-align:left;
+			}
+			#exit
+			{
+				font-size:16px;
+				font-weight:bold;
+				color:red;
+				text-align:right;
+			}
+			#content
+			{
+				font-size:14px;
+				text-align:center;
+			}
+			</style>
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="button" value="打开弹出层" onclick="showFloat()">
+		<input id="changeContent" value="AAA">
+		<input type="button" value="改变内容" onclick="changeContent()">
+		<input type="button" value="允许/禁止拖动" onclick="changeDraggable()">
+		<br />
+		<input type="button" value="改变关闭快捷键为Esc" onclick="changeKeyToExit(27)">
+		<input type="button" value="改变关闭快捷键为F2" onclick="changeKeyToExit(113)">
+		<input type="button" value="改变关闭快捷键为E" onclick="changeKeyToExit(69)">
+		<div class="goback">
+			<p><a href="https://xuxu9110.github.io/src/hw3.html">返回</a></p>
+		</div>
+		<div id="float" style="display:none;">
+			<div id="title">
+			</div>
+			<div id="exit">
+				<a href="#" onclick="exitFloat()">点我关闭</a>
+			</div>
+			<div align="center">
+				<span id="content"></span>
+			</div>
+		</div>
+	</body>
+	<script>
+		var cc = document.getElementById('changeContent');
+		var title="这是标题";
+		var flo = document.getElementById("float");
+		var con = document.getElementById('content');
+		var tit = document.getElementById('title');
+		var mx, my;
+
+		function showFloat(){
+			con.innerHTML = cc.value;
+			tit.innerHTML = title;
+			flo.style.display = 'block';
+		}
+		function exitFloat(){
+			flo.style.display='none';
+		}
+		function changeContent()
+		{
+			con.innerHTML = cc.value;
+		}
+
+		//鼠标拖动参考了http://www.jb51.net/article/40320.htm
+		var draggable = true;
+		function changeDraggable()
+		{
+			draggable = !draggable;
+		}
+		var mouseD;
+		var isIE = document.all ? true : false;
+		document.onmousedown = function(e){
+			if(!draggable) return;
+			var e = e ? e : event;
+			var i = 0;
+			if(document.all) i = 1;
+			if(e.button == i)
+			{
+				mouseD = true;
+			}
+		}
+		var objDrag;
+		flo.onmousedown = function(e){
+			if(!draggable) return;
+			objDrag = this;
+			var e = e ? e : event;
+			var i = 0;
+			if(document.all) i = 1;
+			if(e.button == i)
+			{
+				//改变位置
+				mx = e.clientX;
+				my = e.clientY;
+				flo.style.left = flo.offsetLeft + "px";
+				flo.style.top = flo.offsetTop + "px";
+				if(isIE)
+				{
+					flo.setCapture();
+				}
+				else
+				{
+					window.captureEvents(Event.MOUSEMOVE);
+				}
+			}
+		}
+		document.onmouseup = function(){
+			if(!draggable) return;
+			mouseD = false;
+			objDrag = 0;
+			if(isIE)
+			{
+				flo.releaseCapture();
+			}
+			else
+			{
+				window.releaseEvents(flo.MOUSEMOVE);
+			}
+		}
+		document.onmousemove = function(e){
+			if(!draggable) return;
+			var e = e ? e : event;
+			if(mouseD && objDrag)
+			{
+				//改变位置
+				flo.style.left = parseInt(flo.style.left) + e.clientX - mx + "px";
+				flo.style.top = parseInt(flo.style.top) + e.clientY - my + "px";
+				mx = e.clientX;
+				my = e.clientY;
+			}
+		}
+
+		var keyToExit = 27;
+		document.onkeydown = function(e){
+			e = window.event || e;
+			if(e.keyCode == keyToExit) exitFloat();
+		}
+		function changeKeyToExit(i)
+		{
+			keyToExit = i;
+		}
+	</script>
+</html>

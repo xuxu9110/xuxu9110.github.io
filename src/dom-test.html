@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+	<script>
+		function $(str) {
+				switch(str[0]){
+				case '#':
+					str = str.replace(/#/,"");
+					return document.getElementById(str);
+					break;
+				case '.':
+					str = str.replace(/./,"");
+					return document.getElementsByClassName(str);
+					break;
+				default:
+					return document.getElementsByTagName(str);
+					break;
+				}
+			}
+
+		Object.prototype.attr = function(){
+			if(arguments.length == 1)
+			{
+				return this.getAttribute(arguments[0]);
+			}
+			else
+			{
+				this.setAttribute(arguments[0],arguments[1]);
+			}
+		}
+	</script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>Document</title>
+	</head>
+	<body>
+		<div>
+			<div id='111'>
+				1
+			</div>
+			<div class='hhh' id='ooo'>
+				2
+			</div>
+		</div>
+		<div>
+			<div>
+				<p>3</p>
+			</div>
+			<div>
+				4
+			</div>
+		</div>
+		<div>
+			<div class='hhh'>
+				5
+			</div>
+			<div>
+				<p>6</p>
+			</div>
+		</div>
+		<div class="goback">
+			<p><a href="https://xuxu9110.github.io/src/hw3.html">返回</a></p>
+		</div>
+	</body>
+
+	<script>
+		var x, a;
+		x = $('#111');
+		x.innerHTML += ' $("#111")has find this';
+		x = $('p');
+		for(a = 0; a < x.length; ++a)
+		{
+			x[a].innerHTML += ' $("p")has find this';
+		}
+		x = $('.hhh');
+		for(a = 0; a < x.length; ++a)
+		{
+			x[a].innerHTML += ' $(".hhh")has find this';
+		}
+		document.write('id of first element of $(".hhh") is ' + $('.hhh')[0].attr('id'));
+		document.write('<br />change the id of first element of $(".hhh") into ppp');
+		x[0].attr('id','ppp');
+		document.write('<br />id of first element of $(".hhh") is ' + $('.hhh')[0].attr('id'));
+	</script>
+</html>

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Generator" content="EditPlus®">
+        <meta name="Author" content="许骏洲">
+        <meta name="Keywords" content="许骏洲,web前端作业">
+        <meta name="Description" content="web前端作业之一">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			body {background-color:#F0F0FF;font-family:Times;}
+			h1 {font-weight:bold;color:blue;font-size:16px;}
+			h2 {font-weight:bold;color:#000080;font-size:16px;}
+			h3 {font-weight:bold;font-size:12px;}
+			p {color:black;font-size:12px;}
+			div {margin:0px;margin-left:20px;margin-right:20px;padding:0px;}
+			.header-section {text-align:center}
+			.header-section p {font-weight:bold;background-color:#000030;color:white;font-size:24px;}
+			.homework-section p {text-indent:2em;}
+			.journal-section p {text-indent:2em;}
+			.goback {margin-right:40px;text-align:right;}
+			.goback p {font-size:14px;}
+			.intro-section {width:300px;float:left;}
+			.contact-section {width:300px;float:left;}
+			#goTop {
+				position: fixed;
+				display: none;
+				left: 90%;
+				top: 90%;
+			}
+		</style>
+		
+        <title>作业三</title>
+    </head>
+    <body>
+        <div class="header-section">
+			<p>HOMEWORK</p>
+            <img src="https://xuxu9110.github.io/ext/image/X.jpg" alt="头像">
+	        <h1>我是许骏洲，一个普通的软工学生</h1>
+			<br />
+        </div>
+
+		<div class="text-section">
+			<h2>作业三</h2>
+			<div>
+				<p><b>2.1 基础要求</b></p>
+				<br />
+				<p><b>2.1.1 DOM基础【25分】</b><a href="https://xuxu9110.github.io/src/dom-test.html">测试页面</a></p>
+				<p>2.1.1.1 简易DOM选择器（15分）</p>
+				<p>编写一个形如$(arg)的方法, 能根据所传入参数的不同，获取对应的DOM节点：</p>
+				<p>var dom=$('#id'); //获取id为id的节点</p>
+				<p>var dom = $('.classname'); //获取class属性包含classname的所有节点</p>
+				<p>var dom = $('a'); //获取所有a标签</p>
+				<p>注意如果只有一个匹配元素时，应当返回这个元素，如果有多个元素匹配时，应该返回一个数组。</p>
+				<p>要求在如下浏览器中可正常运行：IE8/9/10、Chrome latest、Firefox latest</p>
+				<p>2.1.1.2 DOM属性访问器（10分）</p>
+				<p>在上一题的基础上，对于返回的DOM元素，要求具有一个attr方法，可以通过$(…).attr或者$(…)[index].attr调用（前者是选择器返回一个元素时的调用方式，后者是选择器返回数组时的调用方式），根据调用参数的不同，获取或者设置属性值：</p>
+				<p>$(…).attr(attributeName); //获取名称为attributeName的属性值，如果不存在返回undefined</p>
+				<p>$(…).attr(attributeName,value); //设置名称为attributeName的属性值为value</p>
+				<p>要求保证该方法的容错性，即永远不会抛出异常。</p>
+				<br />
+				<p><b>2.1.2 DOM综合题（60分）</b></p>
+				<p>2.1.2.1 返回顶部按钮（30分）</p>
+				<p>在很多网站上都有一个“返回顶部”的按钮，点击按钮后滚动条会回到页面最顶部；请编写一个类似的组件，要求利用本节所学到的知识，保证该组件支持：</p>
+				<p>（1） （10分）鼠标点击可返回顶部，要求有动画。</p>
+				<p>（2） （5分）键盘操作可返回顶部（具体的单键或组合键可自行设计）。<b>我设置的是Ctrl+上方向键</b></p>
+				<p>（3） （5分）滚动条在最顶部时，不显示按钮。</p>
+				<p>（4） （10分）组件的位置支持任意给定且支持四种角落，如控件名为BackToTop，初始化函数为init，则：</p>
+				<p>BackToTop.init({x:100,y:100}); //控件的左上角坐标为(100,100)</p>
+				<p>BackToTop.init({LeftUp: true}); //控件位于页面左上角</p>
+				<p>BackToTop.init({LeftDown: true}); //控件位于页面左下角</p>
+				<p>BackToTop.init({RightUp: true}); //控件位于页面右上角</p>
+				<p>BackToTop.init({RightDown: true}); //控件位于页面的右下角</p>
+				<p>注意：你需要设计一个展示页面来展示你的控件。</p>
+				<input id="initTest" type="button" onclick="initTest()" value="init函数测试">
+				<p>2.1.2.2 自定义模态（30分）</p>
+				<p>编写一个自定义的弹层组件，仅实现Alert效果即可，要求实现以下功能点（每个功能点占10分）：</p>
+				<p>（1） 弹层内容可任意设置，例如弹层控件名为Modal，初始化函数为init，则： Modal.init({content: “xx”}) //设置内容为xx</p>
+				<p>（2） 弹层默认可拖拽，但可以用参数draggable来控制，例如： Modal.init({draggable: false}) //禁止拖拽</p>
+				<p>（3） 键盘上按ESC键可关闭弹层，但可以通过参数closeKey来更改键位，例如: Modal.init({closeKey: 119}) // 按w关闭</p>
+				<p>注意：你需要设计一个展示页面来展示你的控件。<a href="https://xuxu9110.github.io/src/float-test.html">测试页面</a></p>
+				<p>2.1.3 DOM分析题【15分】</p>
+				<p>请利用本次课程中学习的DOM相关知识，分析下面给出的这个网页（http://mami.baidu.com/main?channel=org）顶部的图片轮播是何实现的，要求详细说明该图片轮播的设计与实现原理、所用到的DOM操作、相关事件等。</p>
+				<br/>
+				<p><b>2.2 Bonus（10分）</b></p>
+				<p>在第三次课程中，大家学会了用 JS 操纵 DOM 元素，现在请大家用丰富的想象力，完善第一次作业中提交的个人主页（或者可以在原个人主页中添加页面），为原来的页面添加一些特效来更好地展示自己。</p>
+				<p>要求：</p>
+				<p>（1） 必须使用 JS 实现特效；</p>
+				<p>（2） 展示效果比较美观，甚至以游戏的形式呈现内容；</p>
+				<p>（3） 内容丰富，可操作性强，页面兼容移动端设备，运行流畅不卡顿。</p>
+				<p><span style="float:right"><b>2016-07-05</b></span></p>
+			</div>
+			<br />
+		</div>
+
+        <div class="intro-section">
+			<h2>About me</h2>
+			<p>我叫许骏洲</p>
+			<p>清华大学软件学院14届本科生</p>
+			<p>性别男，98年生</p>
+			<p>单身狗，音游狗，兽控</p>
+		</div>
+        <div class="contact-section">
+			<h2>Contact</h2>
+			<p>QQ：965441838</p>
+			<p>联系电话：(86)18401653028</p>
+			<p>邮箱：xujunzhou14@163.com</p>
+		</div>
+		<div class="goback">
+			<p><a href="https://xuxu9110.github.io/">回到首页</a></p>
+		</div>
+
+		<input id="goTop" type="button" onclick="GoTop()" value="返回顶部">
+		<script type="text/javascript">
+			var d1 = document.documentElement, d2 = document.body;//适配不同浏览器
+			var goTopBtn = document.getElementById("goTop");
+			window.onload=function (){
+				window.onscroll = function(){
+					var d = d1.scrollTop || d2.scrollTop;
+					//距顶部距离大于20则显示，否则不显示
+					if(d > 20){
+						goTopBtn.style.display="block";
+					}
+					else{
+						goTopBtn.style.display="none";
+					}
+				}
+			}
+			function GoTop(){
+				this.timer = setInterval(function(){
+					//移动有动画效果
+					if(d1.scrollTop)
+					{
+						d1.scrollTop -= Math.ceil(d1.scrollTop * 0.1);
+						if(d1.scrollTop <= 10) clearInterval(this.timer);
+					}
+					if(d2.scrollTop)
+					{
+						d2.scrollTop -= Math.ceil(d2.scrollTop * 0.1);
+						if(d2.scrollTop <= 10) clearInterval(this.timer);
+					}
+				}
+				,5);
+			}
+			document.onkeydown = function(e){
+				//按下ctrl+↑返回顶部
+				e = window.event || e;
+				if(e.keyCode == 38 && e.ctrlKey) GoTop();
+			}
+			goTopBtn.init = function(p){
+				//改变位置
+				if(p.hasOwnProperty("x") && p.hasOwnProperty("y"))
+				{
+					this.style="left:" + p.x + "px; top:" + p.y + "px";
+					this.setAttribute("style","left:"+p.x+"px; top:"+p.y+"px");
+				}
+				if(p.hasOwnProperty("position"))
+				{
+					//一到四分别代表左上、右上、左下、右下
+					switch(p.position)
+					{
+						case 1:
+						this.setAttribute("style","left:5%;top:5%");
+						this.style="left:5%;top:5%";
+						break;
+						case 2:
+						this.setAttribute("style","left:90%;top:5%");
+						this.style="left:90%;top:5%";
+						break;
+						case 3:
+						this.setAttribute("style","left:5%;top:90%");
+						this.style="left:5%;top:90%";
+						break;
+						case 4:
+						this.setAttribute("style","left:90%;top:90%");
+						this.style="left:90%;top:90%";
+						break;
+						default:break;
+					}
+				}
+			}
+			var i = 0;
+			function initTest()
+			{
+				switch(i)
+				{
+					case 0:goTopBtn.init({x:100, y:100});break;
+					case 1:goTopBtn.init({x:200, y:300});break;
+					case 2:goTopBtn.init({position:1});break;
+					case 3:goTopBtn.init({position:2});break;
+					case 4:goTopBtn.init({position:3});break;
+					case 5:goTopBtn.init({position:4});break;
+				}
+				++i;
+				if(i > 5) i = 0;
+			}
+		
+		</script>
+	</body>
+</html>
