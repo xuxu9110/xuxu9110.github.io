@@ -20,8 +20,8 @@
 			.journal-section p {text-indent:2em;}
 			.intro-section {width:300px;float:left;}
 			.contact-section {width:300px;float:left;}
+			.banner {font-size:10px;color:#000030;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;}
 		</style>
-		
         <title>个人主页</title>
     </head>
     <body>
@@ -31,6 +31,8 @@
 	        <h1>我是许骏洲，一个普通的软工学生</h1>
 			<br />
         </div>
+
+		<div class='banner'></div>
 
 		<div class="homework-section">
 			<h2>Homework</h2>
@@ -45,6 +47,8 @@
 			<br />
 		</div>
 
+		<div class='banner'></div>
+
 		<div class="journal-section">
 			<h2>Journal</h2>
 			<div>
@@ -57,6 +61,8 @@
 			</div>
 			<br />
 		</div>
+
+		<div class='banner'></div>
 
         <div class="intro-section">
 			<h2>About me</h2>
@@ -72,6 +78,30 @@
 			<p>邮箱：xujunzhou14@163.com</p>
 		</div>
 
+		<script>
+			var ii = 0, str = '', x;
+			function makeBanner(){
+				var banner = document.getElementsByClassName('banner');
+				for(x=0; x<banner.length; ++x)
+				{
+					str='';
+					var p;
+					for(p=0;p<500;++p)
+					{
+						//str+=Math.floor(Math.random()*10);
+						if(p%10==ii){
+							str+=Math.floor(Math.random()*10);
+						}
+						else
+						{
+							str+='.';
+						}
+					}
+					banner[x].innerHTML = str;	
+				}
+				ii = (ii+1)%10;
+			}
+			setInterval(function(){makeBanner();},40);
 		</script>
 	</body>
 </html>
