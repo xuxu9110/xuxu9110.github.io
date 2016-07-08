@@ -141,7 +141,7 @@ socket.on('admin', function(data)
 {
 	console.log(data);
 	haveAdmin = true;
-	$('.head')[0].src="xuxu9110.github.io/ext/image/admin.png";
+	$('.head')[0].src="https://xuxu9110.github.io/ext/image/admin.png";
 	$('.message')[0].innerHTML = setMessage(data.nickname, data.content, true);
 	setTimeout(rmAdmin, 10000);
 });
