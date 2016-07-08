@@ -7,21 +7,7 @@
         <meta name="Keywords" content="个人主页,许骏洲,web前端作业">
         <meta name="Description" content="web前端作业之一">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<style type="text/css">
-			body {background-color:#F0F0FF;font-family:Times;}
-			h1 {font-weight:bold;color:blue;font-size:16px;}
-			h2 {font-weight:bold;color:#000080;font-size:16px;}
-			h3 {font-weight:bold;font-size:12px;}
-			p {color:black;font-size:12px;}
-			div {margin:0px;margin-left:20px;margin-right:20px;padding:0px;}
-			.header-section {text-align:center}
-			.header-section p {font-weight:bold;background-color:#000030;color:white;font-size:24px;}
-			.homework-section p {text-indent:2em;}
-			.journal-section p {text-indent:2em;}
-			.intro-section {width:300px;float:left;}
-			.contact-section {width:300px;float:left;}
-			.banner {font-size:10px;color:#000030;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;}
-		</style>
+		<link rel="stylesheet" href="xuxu9110.github.io/src/index.css">
         <title>个人主页</title>
     </head>
     <body>
@@ -41,8 +27,8 @@
 				<p>用HTML和CSS写一份个人主页</p>
 				<h3><a href="https://xuxu9110.github.io/src/hw3.html">作业三</a><span style="float:right">2016-07-05</span></h3>
 				<p>巩固课上所学的DOM编程、JS事件模型、浏览器调试等知识</p>
-				<h3><a href="http://www.baidu.com">作业标题（点我进入百度首页）</a></h3>
-				<p>作业简介</p>
+				<h3><a href="https://xuxu9110.github.io/src/微信墙.html">作业四</a><span style="float:right">2016-07-08</span></h3>
+				<p>写一个微信墙~</p>
 			</div>
 			<br />
 		</div>
@@ -77,31 +63,6 @@
 			<p>联系电话：(86)18401653028</p>
 			<p>邮箱：xujunzhou14@163.com</p>
 		</div>
-
-		<script>
-			var ii = 0, str = '', x;
-			function makeBanner(){
-				var banner = document.getElementsByClassName('banner');
-				for(x=0; x<banner.length; ++x)
-				{
-					str='';
-					var p;
-					for(p=0;p<document.body.clientWidth / 2;++p)
-					{
-						//str+=Math.floor(Math.random()*10);
-						if(p%10==ii){
-							str+=Math.floor(Math.random()*10);
-						}
-						else
-						{
-							str+='.';
-						}
-					}
-					banner[x].innerHTML = str;	
-				}
-				ii = (ii+1)%10;
-			}
-			setInterval(function(){makeBanner();},40);
-		</script>
+		<script language="javascript" src="xuxu9110.github.io/src/banner.js"></script>
 	</body>
 </html>
