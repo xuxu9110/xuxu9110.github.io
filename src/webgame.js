@@ -122,7 +122,7 @@ function myItem(x,y,r,speedX,speedY,color)
 function gameNotification(str, func)
 {
 	notification.innerHTML = str;
-	notification.style.display = "block";0
+	notification.style.display = "block";
 	context.clearRect(0,0,canvas.width,canvas.height);// 清空画布
 	if(typeof(timeIntervalID) != "undefined") clearInterval(timeIntervalID);
 	notification.onclick = func;
