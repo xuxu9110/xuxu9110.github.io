@@ -25,6 +25,8 @@
 #notification{
 	position: absolute;
 	font-size: 100px;
+	top: 10%;
+	left: 25%;
 	color: black;
 	cursor: pointer;
 }

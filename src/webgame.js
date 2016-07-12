@@ -122,9 +122,7 @@ function myItem(x,y,r,speedX,speedY,color)
 function gameNotification(str, func)
 {
 	notification.innerHTML = str;
-	notification.style.display = "block";
-	notification.style.top = '25%';
-	notification.style.left = '30%';
+	notification.style.display = "block";0
 	context.clearRect(0,0,canvas.width,canvas.height);// 清空画布
 	if(typeof(timeIntervalID) != "undefined") clearInterval(timeIntervalID);
 	notification.onclick = func;
@@ -441,7 +439,7 @@ function win()
 	audio.currentTime = 0;
 	audio.loop = false;
 	audio.play();
-	gameNotification("CONGRATULATION!<br />You just won!<br />click to retry", init);
+	gameNotification("CONGRATULATION!<br />You just won!<br />click to retry<br />difficulty: "+difficulty, init);
 }
 function gameOver()
 {
