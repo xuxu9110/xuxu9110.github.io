@@ -481,6 +481,7 @@ function bombCollision()
 function drawCanvas()
 {
 	document.getElementById("scale").innerHTML = scale;
+	document.getElementById("size").innerHTML = hero.r;
 	context.clearRect(0,0,canvas.width,canvas.height);// 清空画布
 	context.strokeRect(0,0,canvas.width,canvas.height);
 	moveHero();
