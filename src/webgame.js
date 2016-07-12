@@ -164,6 +164,7 @@ function init()
 {
 	startGame();
 	growSpeed = 1.1 - difficulty / 10;
+	audio.pause();
 	audio.loop = true;
 	audio.src = "https://xuxu9110.github.io/ext/music/bgm.mp3";
 	audio.play();
@@ -424,6 +425,7 @@ function itemCollision()
 }
 function bossWarning()
 {
+	audio.pause();
 	audio.src = 'https://xuxu9110.github.io/ext/music/warning.mp3';
 	audio.currentTime = 0;
 	audio.play();
@@ -435,6 +437,7 @@ function bossWarning()
 }
 function win()
 {
+	audio.pause();
 	audio.src = 'https://xuxu9110.github.io/ext/music/win.mp3';
 	audio.currentTime = 0;
 	audio.loop = false;
@@ -444,6 +447,7 @@ function win()
 function gameOver()
 {
 	delete(hero);
+	audio.pause();
 	audio.src = 'https://xuxu9110.github.io/ext/music/gameover.mp3';
 	audio.currentTime = 0;
 	audio.play();
