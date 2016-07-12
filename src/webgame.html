@@ -92,19 +92,20 @@
 		function initBossStage()
 		{
 			isBossStage = true;
-			boss = new myItem(canvas.width / 2, 120, 30+difficulty*10, Math.random()*2-1, Math.random()*2-1, "black");
+			boss = new myItem(canvas.width / 2, 120, 40 + difficulty*10, Math.random()*2-1, Math.random()*2-1, "black");
 			hero.x = canvas.width / 2;
 			hero.y = canvas.height * 0.7;
 			hero.r = 10;
 			hero.speedX = 6;
 			hero.speedY = 6;
 			delete enemy;
-			enemyNum = 10;
+			enemyNum = parseInt(difficulty / 2) + 9;
 			enemy = new Array(enemyNum);
 			for(var i = 0; i < enemyNum; ++i)
 			{
 				newEnemy(i);
 			}
+			bombNum = parseInt(difficulty / 2) + 4;
 			for(var i = 0; i < bombNum; ++i)
 			{
 				createBomb(boss.x, boss.y);
@@ -150,7 +151,7 @@
 			audio.src = "https://xuxu9110.github.io/ext/music/bgm.mp3";
 			audio.play();
 			isBossStage = false;
-			enemyNum = 20;
+			enemyNum = difficulty + 14;
 			for(var i = 0; i < timeoutID.length; ++i)
 			{
 				clearTimeout(timeoutID[i]);
