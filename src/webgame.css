@@ -1,18 +1,18 @@
 #start{
 	margin-left: 37%;
-	margin-top: 10%;
+	margin-top: 5%;
 	font: 80px 'STXihei', sans-serif;
 	cursor: pointer;
 }
 #introduction{
 	margin-left: 20%;
 	margin-right: 20%;
-	margin-top: 5%;
+	margin-top: 2%;
 	font: 40px 'STXihei', sans-serif;
 }
 #difficultyDiv{
 	margin-left: 37%;
-	margin-top: 5%;
+	margin-top: 2%;
 	font: 40px 'STXihei', sans-serif;
 }
 #bossStage{
@@ -24,7 +24,7 @@
 }
 #notification{
 	position: absolute;
-	font-size: 100px;
+	font-size: 80px;
 	top: 10%;
 	left: 25%;
 	color: black;
