@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>生命游戏</title>
+		<link rel="stylesheet" href="https://xuxu9110.github.io/src/LifeGame/style.css" />
+	</head>
+	<body>
+		<section>
+			<h2>生命游戏</h2>
+			<canvas id="world"></canvas>
+		</section>
+
+		<aside>
+			<br />
+			<button id="start" onclick="startGame()">开始</button>
+			<button id="stop" onclick="stopGame()" disabled>停止</button>
+			<button id="step" onclick="nextStep()">下一步</button>
+			<button id="clean" onclick="cleanWorld()">清空</button>
+			<br />
+		</aside>
+		<script src="https://xuxu9110.github.io/src/LifeGame/lifeGame.js"></script>
+	</body>
+</html>

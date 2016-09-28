@@ -1,0 +1,19 @@
+{
+  "name": "lifegame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "LifeGame.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "lifegame"
+  ],
+  "author": "xujunzhou",
+  "license": "ISC"
+}
